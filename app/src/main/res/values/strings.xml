@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DSCMovieProject</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor dolor ac orci convallis sodales. Sed consequat orci erat, vitae fringilla magna rutrum in. Quisque eu cursus lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel aliquet sapien. Aliquam at neque id ligula convallis suscipit quis in odio. Donec non fringilla nisi. Duis aliquet nibh facilisis, vestibulum sem et, condimentum diam. Duis ultrices elit et magna lobortis, vel ultricies metus egestas.</string>
+</resources>

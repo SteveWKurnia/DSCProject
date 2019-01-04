@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_alignParentEnd="true"
+            android:id="@+id/myWatchlistButton"
+            android:text="Your watchlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.CardView
+            android:layout_below="@+id/myWatchlistButton"
+            android:id="@+id/cardViewProfilePicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:cardCornerRadius="100dp">
+
+            <ImageView
+                android:id="@+id/userProfilePicture"
+                android:src="@drawable/john"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"/>
+
+        </android.support.v7.widget.CardView>
+
+        <EditText
+            android:layout_below="@id/cardViewProfilePicture"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/editTextNameProfile"
+            android:layout_marginTop="30dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_below="@+id/cardViewProfilePicture"
+            android:id="@+id/profileName"
+            android:text="John Doe"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/colorWhite"
+            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@id/profileName"
+            android:text="JDoe@somemail.com"
+            android:textColor="@color/colorWhite"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+</ScrollView>
