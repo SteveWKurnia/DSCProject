@@ -8,11 +8,14 @@
     <TextView
         android:text="Comment"
         android:textSize="30sp"
-        android:textColor="#000000"
+        android:textColor="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:outlineAmbientShadowColor="@color/colorWhite"
+        android:outlineSpotShadowColor="@color/colorWhite"
+        android:textColor="@color/colorWhite"
         android:id="@+id/userComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

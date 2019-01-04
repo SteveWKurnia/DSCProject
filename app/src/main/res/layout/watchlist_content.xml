@@ -17,10 +17,12 @@
 
 
             <ImageView
+                android:layout_gravity="start"
                 android:id="@+id/watchlistPoster"
                 android:src="@drawable/aquaman_poster"
                 android:layout_width="100dp"
-                android:layout_height="100dp"/>
+                android:layout_height="100dp"
+                android:scaleType="fitStart"/>
 
             <TextView
                 android:id="@+id/watchlistTitle"

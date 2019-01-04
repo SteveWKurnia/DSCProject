@@ -1,5 +1,6 @@
 package android.wk.com.dscmovieproject.ProfileFiles.Adapter;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.wk.com.dscmovieproject.HomeFiles.contentDetails;
 import android.wk.com.dscmovieproject.ProfileFiles.DataModel.watchListDataModel;
 import android.wk.com.dscmovieproject.R;
 
@@ -31,9 +33,20 @@ public class watchlistAdapter extends RecyclerView.Adapter<watchlistAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         viewHolder.watchlistTitle.setText(watchListDataModels.get(i).getWatchlistTitle());
         viewHolder.watchlistPoster.setImageResource(watchListDataModels.get(i).getWatchlistPoster());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), contentDetails.class);
+                intent.putExtra("moviePoster", watchListDataModels.get(i).getWatchlistPoster());
+                intent.putExtra("movieTitle",watchListDataModels.get(i).getWatchlistTitle());
+                v.getContext().startActivity(intent);
+            }
+        });
+
     }
 
     @Override

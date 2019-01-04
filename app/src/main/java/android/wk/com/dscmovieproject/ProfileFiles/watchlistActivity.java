@@ -13,23 +13,26 @@ import java.util.ArrayList;
 
 public class watchlistActivity extends AppCompatActivity {
 
-    ArrayList<watchListDataModel> watchListDataModels = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.watchlist_recycler);
-        setData();
 
         RecyclerView watchlistRecycler = findViewById(R.id.watchlistRecycler);
-        watchlistAdapter watchlistAdapter = new watchlistAdapter(watchListDataModels);
+        watchlistAdapter watchlistAdapter = new watchlistAdapter(setData());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         watchlistRecycler.setLayoutManager(linearLayoutManager);
         watchlistRecycler.setAdapter(watchlistAdapter);
     }
 
-    public void setData(){
+    public ArrayList<watchListDataModel> setData(){
+        ArrayList<watchListDataModel> watchListDataModels = new ArrayList<>();
+
         watchListDataModels.add(new watchListDataModel("Aquaman",R.drawable.aquaman_poster));
+        watchListDataModels.add(new watchListDataModel("In this corner of the world",R.drawable.corner_of_the_world));
+
+        return watchListDataModels;
     }
 
 }

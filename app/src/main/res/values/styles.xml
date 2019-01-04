@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppThemeRatingBar" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/colorGold</item>
+        <item name="android:colorControlNormal">@color/colorDarkGold</item>
+    </style>
 </resources>
