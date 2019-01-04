@@ -1,16 +1,3 @@
-/*
-The order in which the methods inside the adapter are called is as follows:
-
-1.The RecyclerView attempts to grab a view holder for a certain position from its pool of recycled (or scrapped) view holders.
-2.When it does this, it calls [getItemViewType] for the position it wants to fill
-3.It then attempts to grab a previously created view holder associated with this item view type.
-4.If the RecyclerView view doesn't have an available view holder for this item type, it calls [onCreateViewHolder] in order to create a new view holder for this item type.
-5.Once the view holder is attained (whether by creating a new one, or grabbing a scrapped / recycled one),
-    it then calls [onBindViewHolder] from the adapter to set the correct data for the view holder.
-6.During all this, [getItemCount] will be used to ensure that the RecyclerView doesn't attempt to populate a view holder beyond the limit of the data-source.
- */
-
-
 package android.wk.com.dscmovieproject.HomeFiles.Adapter;
 
 import android.content.Context;
