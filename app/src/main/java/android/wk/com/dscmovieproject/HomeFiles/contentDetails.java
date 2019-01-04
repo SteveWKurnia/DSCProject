@@ -38,23 +38,26 @@ public class contentDetails extends AppCompatActivity {
     }
 
     private void setData(String movieTitle, Integer moviePoster){
-        TextView movieTitleTextView = findViewById(R.id.titleDetail);
-        ImageView moviePosterImageView = findViewById(R.id.imagePosterDetail);
+        final TextView movieTitleTextView = findViewById(R.id.titleDetail);
+        final ImageView moviePosterImageView = findViewById(R.id.imagePosterDetail);
         Button ratingButton = findViewById(R.id.ratingButton);
         Button commentButton = findViewById(R.id.commentButton);
         TextView synopsis = findViewById(R.id.contentSynopsis);
+        final Bundle bundle = new Bundle();
+        bundle.putString("movieTitle", movieTitleTextView.getText().toString());
+        bundle.putInt("moviePoster",moviePosterImageView.getId());
 
         synopsis.setMovementMethod(new ScrollingMovementMethod());
 
         Log.d("AllLog", "Before fragment RatingMenu");
-        loadFragment(new ratingMenu());
+        loadFragment(new ratingMenu(),bundle);
         Log.d("AllLog", "After fragment RatingMenu");
 
         commentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("AllLog","comment click");
-                loadFragment(new commentMenu());
+                loadFragment(new commentMenu(),bundle);
             }
         });
 
@@ -62,7 +65,7 @@ public class contentDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("AllLog","rating click");
-                loadFragment(new ratingMenu());
+                loadFragment(new ratingMenu(),bundle);
             }
         });
 
@@ -70,8 +73,9 @@ public class contentDetails extends AppCompatActivity {
         moviePosterImageView.setImageResource(moviePoster);
     }
 
-    private boolean loadFragment(Fragment fragment){
+    private boolean loadFragment(Fragment fragment, Bundle bundle){
         if(fragment != null){
+            fragment.setArguments(bundle);
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragmentDetailsHome,fragment)

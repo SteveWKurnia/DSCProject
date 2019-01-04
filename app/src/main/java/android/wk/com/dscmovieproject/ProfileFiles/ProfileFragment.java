@@ -1,5 +1,6 @@
 package android.wk.com.dscmovieproject.ProfileFiles;
 
+import android.content.Intent;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,7 +23,15 @@ public class ProfileFragment extends Fragment {
 
         final TextView name = view.findViewById(R.id.profileName);
         final EditText editName = view.findViewById(R.id.editTextNameProfile);
-        Button logoutButton = view.findViewById(R.id.loginButton);
+        final Button myWatchlistButton = view.findViewById(R.id.myWatchlistButton);
+
+        myWatchlistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), watchlistActivity.class);
+                startActivity(intent);
+            }
+        });
 
         editName.setOnKeyListener(new View.OnKeyListener() {
             @Override

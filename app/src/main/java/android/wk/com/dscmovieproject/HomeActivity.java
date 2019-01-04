@@ -10,7 +10,10 @@ import android.wk.com.dscmovieproject.HomeFiles.HomeFragment;
 import android.wk.com.dscmovieproject.ProfileFiles.ProfileFragment;
 import android.wk.com.dscmovieproject.SearchFiles.SearchFragment;
 
+import com.google.firebase.database.DatabaseReference;
+
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("Home");
