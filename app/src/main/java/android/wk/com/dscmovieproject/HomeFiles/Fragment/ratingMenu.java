@@ -12,10 +12,15 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.wk.com.dscmovieproject.ProfileFiles.DataModel.watchListDataModel;
 import android.wk.com.dscmovieproject.ProfileFiles.watchlistActivity;
 import android.wk.com.dscmovieproject.R;
 
+import java.util.ArrayList;
+
 public class ratingMenu extends Fragment {
+    ArrayList<watchListDataModel> watchListDataModels = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,8 +53,7 @@ public class ratingMenu extends Fragment {
 
 
                 //////////////////////Still needs rework on passing data to watchlistActivity/////////////
-                //watchlistActivity watchlistActivity = new watchlistActivity();
-                //watchlistActivity.setData(movieTitle,moviePoster);
+                watchlistActivity.setData(movieTitle,moviePoster);
             }
         });
 

@@ -43,9 +43,10 @@ public class contentDetails extends AppCompatActivity {
         Button ratingButton = findViewById(R.id.ratingButton);
         Button commentButton = findViewById(R.id.commentButton);
         TextView synopsis = findViewById(R.id.contentSynopsis);
+
         final Bundle bundle = new Bundle();
-        bundle.putString("movieTitle", movieTitleTextView.getText().toString());
-        bundle.putInt("moviePoster",moviePosterImageView.getId());
+        bundle.putString("movieTitle", movieTitle);
+        bundle.putInt("moviePoster", moviePoster);
 
         synopsis.setMovementMethod(new ScrollingMovementMethod());
 
