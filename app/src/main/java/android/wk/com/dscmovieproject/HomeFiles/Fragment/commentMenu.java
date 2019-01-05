@@ -12,10 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.wk.com.dscmovieproject.HomeFiles.Adapter.commentAdapter;
-import android.wk.com.dscmovieproject.HomeFiles.DataModel.commentDataModel;
 import android.wk.com.dscmovieproject.R;
-
-import java.util.ArrayList;
 
 public class commentMenu extends Fragment {
 
@@ -32,24 +29,16 @@ public class commentMenu extends Fragment {
         Button button = view.findViewById(R.id.postButton);
         final EditText userComment = view.findViewById(R.id.userComment);
         final RecyclerView mainRecycler = view.findViewById(R.id.commentRecyclers);
-        mainRecycler.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
+        mainRecycler.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL,false));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String comment = userComment.getText().toString();
-                commentAdapter commentAdapter = new commentAdapter(populateArrayList(comment));
+                commentAdapter commentAdapter = new commentAdapter(comment);
                 mainRecycler.setAdapter(commentAdapter);
             }
         });
 
     }
-
-    private ArrayList<commentDataModel> populateArrayList(String comment){
-        ArrayList<commentDataModel> commentDataModels = new ArrayList<>();
-        commentDataModels.add(new commentDataModel("John Doe",comment,R.drawable.ic_person_black_24dp));
-
-        return commentDataModels;
-    }
-
 }

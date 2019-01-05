@@ -15,11 +15,13 @@ import java.util.ArrayList;
 
 public class commentAdapter extends RecyclerView.Adapter<commentAdapter.ViewHolder> {
 
-    ArrayList<commentDataModel> commentDataModels;
+    static ArrayList<commentDataModel> commentDataModels = new ArrayList<>();
+    String comment;
 
-    public commentAdapter(ArrayList<commentDataModel> commentDataModels) {
+    public commentAdapter(String comment) {
         Log.d("AllLog","on create comment adapter");
-        this.commentDataModels = commentDataModels;
+        this.comment = comment;
+        populateArrayList(comment);
     }
 
     @NonNull
@@ -42,6 +44,10 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.ViewHold
     @Override
     public int getItemCount() {
         return commentDataModels.size();
+    }
+
+    private void populateArrayList(String comment){
+        commentDataModels.add(new commentDataModel("John Doe",comment,R.drawable.john));
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

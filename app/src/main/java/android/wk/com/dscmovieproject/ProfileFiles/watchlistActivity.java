@@ -1,12 +1,13 @@
 package android.wk.com.dscmovieproject.ProfileFiles;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.wk.com.dscmovieproject.ProfileFiles.Adapter.watchlistAdapter;
 import android.wk.com.dscmovieproject.ProfileFiles.DataModel.watchListDataModel;
 import android.wk.com.dscmovieproject.R;
@@ -22,6 +23,14 @@ public class watchlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("Watchlist");
         setContentView(R.layout.watchlist_recycler);
+        TextView textView = findViewById(R.id.watchlistIsEmpty);
+
+        if (watchListDataModels.isEmpty()){
+            textView.setVisibility(View.VISIBLE);
+        }
+        else{
+            textView.setVisibility(View.GONE);
+        }
 
         RecyclerView watchlistRecycler = findViewById(R.id.watchlistRecycler);
         watchlistAdapter watchlistAdapter = new watchlistAdapter(watchListDataModels);
