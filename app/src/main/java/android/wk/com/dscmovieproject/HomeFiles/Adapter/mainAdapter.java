@@ -18,6 +18,7 @@ import android.wk.com.dscmovieproject.R;
 
 import java.util.ArrayList;
 
+import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.firebaseSliderData;
 import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.getContentData;
 import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.getSliderImageData;
 
@@ -87,7 +88,9 @@ public class mainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private void sliderImage(imageSliderViewHolder holder){
         SnapHelper helper = new LinearSnapHelper();
-        imageSliderAdapter imageSliderAdapter = new imageSliderAdapter(getSliderImageData());
+        //////EDITED////////
+        imageSliderAdapter imageSliderAdapter = new imageSliderAdapter(firebaseSliderData);
+        //////EDITED////////
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
         holder.recyclerView.setAdapter(imageSliderAdapter);
         helper.attachToRecyclerView(holder.recyclerView);

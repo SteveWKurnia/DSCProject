@@ -7,12 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.getFirebaseImageSliderData;
+
 public class loginPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.login_page);
         Button button = findViewById(R.id.loginButton);
+        //////EDITED////////
+        getFirebaseImageSliderData();
+        //////EDITED////////
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
