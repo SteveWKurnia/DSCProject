@@ -1,5 +1,7 @@
 package android.wk.com.dscmovieproject.HomeFiles;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -75,32 +77,31 @@ public class HomeFragment extends Fragment {
     ////////////////////////FIREBAAAAAAAAAAAASSSSSSSSEEEEEEEEEEE////////////////////////////
     public static void getFirebaseImageSliderData(){
         Log.d("AllLog","saget");
+        Log.d("AllLog", Integer.toString(R.drawable.aquaman2));
+        Log.d("AllLog", Integer.toString(R.drawable.aquaman_poster));
+        Log.d("AllLog", Integer.toString(R.drawable.spiderman));
+        Log.d("AllLog", Integer.toString(R.drawable.into_the_spiderverse_poster));
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//////////////////TRYING ITERATOR FIREBASE////////////////////////
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-//                    String title = "", comment = "";
-//                    if (snapshot.getValue().toString() == "Aquaman"){
-//                        Log.d("AllLog","snapshoot!");
-//                        title = dataSnapshot.child("Aquaman/title").getValue().toString();
-//                        comment = dataSnapshot.child("Aquaman/comment").getValue().toString();
-//                    }
-//                    else if (snapshot.getValue().toString() == "Spiderman"){
-//                        Log.d("AllLog","snapshoot!");
-//                        title = dataSnapshot.child("Spiderman/title").getValue().toString();
-//                        comment = dataSnapshot.child("Spiderman/comment").getValue().toString();
-//                    }
-//                    firebaseSliderData.add(new sliderImageDataModel(title,comment, R.drawable.aquaman2,R.drawable.aquaman_poster));
-//                }
-// ////////////////TRYING ITERATOR FIREBASE////////////////////////
-                Log.d("AllLog","snapshoot!");
-                String title = dataSnapshot.child("Aquaman/title").getValue().toString();
-                String comment = dataSnapshot.child("Aquaman/comment").getValue().toString();
-
-                firebaseSliderData.add(new sliderImageDataModel(title,comment, R.drawable.aquaman2,R.drawable.aquaman_poster));
-                firebaseSliderData.add(new sliderImageDataModel("Spiderman: Into the Spiderverse","Sony nailed this one!", R.drawable.spiderman,R.drawable.into_the_spiderverse_poster));
-                firebaseSliderData.add(new sliderImageDataModel(title,comment, R.drawable.aquaman2,R.drawable.aquaman_poster));
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String title = "", comment = "";
+                    Integer imageSlider=0, imagePoster=0;
+                    if (snapshot.child("title").getValue().toString().equals("Aquaman")){
+                        title = snapshot.child("title").getValue().toString();
+                        comment = snapshot.child("comment").getValue().toString();
+                        imageSlider = Integer.parseInt(snapshot.child("imageSlider").getValue().toString());
+                        imagePoster = Integer.parseInt(snapshot.child("imagePoster").getValue().toString());
+                    }
+                    else if (snapshot.child("title").getValue().toString().equals("Spiderman: Into the Spiderverse")){
+                        Log.d("AllLog","snapshoot!");
+                        title = snapshot.child("title").getValue().toString();
+                        comment = snapshot.child("comment").getValue().toString();
+                        imageSlider = Integer.parseInt(snapshot.child("imageSlider").getValue().toString());
+                        imagePoster = Integer.parseInt(snapshot.child("imagePoster").getValue().toString());
+                    }
+                    firebaseSliderData.add(new sliderImageDataModel(title,comment, imageSlider,imagePoster));
+                }
             }
 
             @Override
