@@ -23,7 +23,8 @@
                 android:id="@+id/contentImage"
                 android:src="@drawable/ralph_poster"
                 android:layout_width="120dp"
-                android:layout_height="150dp" />
+                android:layout_height="150dp"
+                android:scaleType="fitXY"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

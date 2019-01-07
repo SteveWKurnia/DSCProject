@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/cinema_vector"
+        android:icon="@drawable/video_production"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/cinema_vector"
+        android:roundIcon="@drawable/video_production"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode = "adjustResize">

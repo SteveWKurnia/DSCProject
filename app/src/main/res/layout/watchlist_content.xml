@@ -20,11 +20,12 @@
                 android:layout_gravity="start"
                 android:id="@+id/watchlistPoster"
                 android:src="@drawable/aquaman_poster"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="100dp"
-                android:scaleType="fitStart"/>
+                android:scaleType="fitXY"/>
 
             <TextView
+                android:layout_marginLeft="20dp"
                 android:id="@+id/watchlistTitle"
                 android:layout_gravity="center"
                 android:text="Aquaman"
