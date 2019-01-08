@@ -22,7 +22,20 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search,null);
-        SearchView searchView = view.findViewById(R.id.searchView);
+        final SearchView searchView = view.findViewById(R.id.searchView);
+
+        RecyclerView recyclerView = view.findViewById(R.id.searchRecycler);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL,false);
+        final searchAdapter searchAdapter = new searchAdapter(setData());
+        recyclerView.setAdapter(searchAdapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchView.setIconified(false);
+            }
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -33,15 +46,19 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String s) {
                 Log.d("AllLog", s);
+                final ArrayList<searchDataModel> searchFilteredData = filter(setData(),s);
+                if (searchFilteredData.isEmpty()){
+                    Log.d("AllLog","Empty!");
+                }
+                else {
+                    for (searchDataModel searchDataModel : searchFilteredData) {
+                        Log.d("AllLog", searchDataModel.getWatchlistTitle());
+                    }
+                }
+                searchAdapter.setFilter(searchFilteredData);
                 return false;
             }
         });
-
-        RecyclerView recyclerView = view.findViewById(R.id.searchRecycler);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL,false);
-        searchAdapter searchAdapter = new searchAdapter(setData());
-        recyclerView.setAdapter(searchAdapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
 
         return view;
     }
@@ -55,6 +72,24 @@ public class SearchFragment extends Fragment {
         searchDataModels.add(new searchDataModel("Ralph breaks the internet",R.drawable.ralph_poster));
 
         return searchDataModels;
+    }
+
+    private ArrayList<searchDataModel> filter(ArrayList<searchDataModel> searchDataModelArrayList, String query){
+        query = query.toLowerCase();
+        final ArrayList<searchDataModel> searchDataFilter = new ArrayList<>();
+        for(searchDataModel item : searchDataModelArrayList){
+            final String text = item.getWatchlistTitle();
+            Log.d("AllLog","Query: " + query);
+            Log.d("AllLog","--------------------"+ text);
+            if(text.startsWith(query)){
+                Log.d("AllLog",text + "IsHere!");
+                searchDataFilter.add(item);
+            }
+            else{
+                Log.d("AllLog",text + "isNotHere!");
+            }
+        }
+        return searchDataFilter;
     }
 
 }

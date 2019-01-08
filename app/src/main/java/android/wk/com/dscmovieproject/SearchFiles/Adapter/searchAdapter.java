@@ -52,6 +52,12 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
         return searchDataModels.size();
     }
 
+    public void setFilter(ArrayList<searchDataModel> searchDataModelArrayList){
+        searchDataModels = new ArrayList<>();
+        searchDataModels.addAll(searchDataModelArrayList);
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView moviePoster;
