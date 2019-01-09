@@ -39,6 +39,13 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,null);
 
+        //Failsafe for firebase
+        if (firebaseSliderData.isEmpty()){
+            Log.d("AllLog", "Adding dummy data");
+            firebaseSliderData.add(new sliderImageDataModel("Aquaman","DC Redeemed!",R.drawable.aquaman2,R.drawable.aquaman_poster));
+            firebaseSliderData.add(new sliderImageDataModel("Spiderman: into the spiderverse","Sony Animations done right!",R.drawable.spiderman,R.drawable.into_the_spiderverse_poster));
+        }
+
         //TryNewStuff
         RecyclerView mainRecycler = view.findViewById(R.id.homeRecyclerView);
         Log.d(TAG,"MainRecycler");
@@ -76,11 +83,6 @@ public class HomeFragment extends Fragment {
 
     ////////////////////////FIREBAAAAAAAAAAAASSSSSSSSEEEEEEEEEEE////////////////////////////
     public static void getFirebaseImageSliderData(){
-        Log.d("AllLog","saget");
-        Log.d("AllLog", Integer.toString(R.drawable.aquaman2));
-        Log.d("AllLog", Integer.toString(R.drawable.aquaman_poster));
-        Log.d("AllLog", Integer.toString(R.drawable.spiderman));
-        Log.d("AllLog", Integer.toString(R.drawable.into_the_spiderverse_poster));
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

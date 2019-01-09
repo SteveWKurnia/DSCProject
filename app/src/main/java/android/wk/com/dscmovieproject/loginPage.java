@@ -8,10 +8,13 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.wk.com.dscmovieproject.HomeFiles.DataModel.sliderImageDataModel;
 
+import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.firebaseSliderData;
 import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.getFirebaseImageSliderData;
 
 public class loginPage extends AppCompatActivity {
@@ -21,7 +24,13 @@ public class loginPage extends AppCompatActivity {
         setContentView(R.layout.login_page);
         Button button = findViewById(R.id.loginButton);
         //////EDITED////////
-        getFirebaseImageSliderData();
+        Log.d("AllLog","BeforeFirebase");
+        try {
+            getFirebaseImageSliderData();
+        }catch (Exception e){
+            Toast.makeText(this, "Connection Error", Toast.LENGTH_SHORT).show();
+        }
+
         //////EDITED////////
 
         button.setOnClickListener(new View.OnClickListener() {
