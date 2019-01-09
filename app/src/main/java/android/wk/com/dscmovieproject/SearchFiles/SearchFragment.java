@@ -78,7 +78,8 @@ public class SearchFragment extends Fragment {
         query = query.toLowerCase();
         final ArrayList<searchDataModel> searchDataFilter = new ArrayList<>();
         for(searchDataModel item : searchDataModelArrayList){
-            final String text = item.getWatchlistTitle();
+            String text = item.getWatchlistTitle();
+            text = text.toLowerCase();
             Log.d("AllLog","Query: " + query);
             Log.d("AllLog","--------------------"+ text);
             if(text.startsWith(query)){
