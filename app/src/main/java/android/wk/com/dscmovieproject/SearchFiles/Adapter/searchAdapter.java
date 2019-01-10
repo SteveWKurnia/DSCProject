@@ -12,6 +12,8 @@ import android.wk.com.dscmovieproject.HomeFiles.contentDetails;
 import android.wk.com.dscmovieproject.R;
 import android.wk.com.dscmovieproject.SearchFiles.DataModel.searchDataModel;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder>{
@@ -34,7 +36,8 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         viewHolder.movieTitle.setText(searchDataModels.get(i).getWatchlistTitle());
-        viewHolder.moviePoster.setImageResource(searchDataModels.get(i).getWatchlistPoster());
+        //viewHolder.moviePoster.setImageResource(searchDataModels.get(i).getWatchlistPoster());
+        Picasso.with(viewHolder.itemView.getContext()).load(searchDataModels.get(i).getWatchlistPoster()).resize(800,400).into(viewHolder.moviePoster);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,6 +14,8 @@ import android.wk.com.dscmovieproject.HomeFiles.DataModel.contentDataModel;
 import android.wk.com.dscmovieproject.HomeFiles.contentDetails;
 import android.wk.com.dscmovieproject.R;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class contentAdapter extends RecyclerView.Adapter<contentAdapter.contentViewHolder>{
@@ -37,7 +39,8 @@ public class contentAdapter extends RecyclerView.Adapter<contentAdapter.contentV
     public void onBindViewHolder(@NonNull contentViewHolder contentViewHolder, final int i) {
         contentViewHolder.movieTitle.setText(contentDataModels.get(i).getMovieTitle());
         contentViewHolder.movieSynopsis.setText(contentDataModels.get(i).getMovieSynopsis());
-        contentViewHolder.movieImage.setImageResource(contentDataModels.get(i).getMovieImage());
+        //contentViewHolder.movieImage.setImageResource(contentDataModels.get(i).getMovieImage());
+        Picasso.with(contentViewHolder.itemView.getContext()).load(contentDataModels.get(i).getMovieImage()).resize(800,400).into(contentViewHolder.movieImage);
 
         contentViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

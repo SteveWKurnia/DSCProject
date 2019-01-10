@@ -15,6 +15,8 @@ import android.wk.com.dscmovieproject.HomeFiles.DataModel.sliderImageDataModel;
 import android.wk.com.dscmovieproject.HomeFiles.contentDetails;
 import android.wk.com.dscmovieproject.R;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class imageSliderAdapter extends RecyclerView.Adapter<imageSliderAdapter.ViewHolder>{
@@ -35,9 +37,10 @@ public class imageSliderAdapter extends RecyclerView.Adapter<imageSliderAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
-        viewHolder.image.setImageResource(sliderImageDataModels.get(i).getMovieImage());
+        //viewHolder.image.setImageResource(sliderImageDataModels.get(i).getMovieImage());
         viewHolder.title.setText(sliderImageDataModels.get(i).getMovieTitle());
         viewHolder.comment.setText(sliderImageDataModels.get(i).getMovieComment());
+        Picasso.with(viewHolder.itemView.getContext()).load(sliderImageDataModels.get(i).getMovieImage()).resize(800,400).into(viewHolder.image);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
