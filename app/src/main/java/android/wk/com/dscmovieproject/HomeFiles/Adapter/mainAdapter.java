@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.firebaseSliderData;
 import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.getContentData;
-import static android.wk.com.dscmovieproject.HomeFiles.HomeFragment.getSliderImageData;
 
 public class mainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 

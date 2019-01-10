@@ -71,16 +71,6 @@ public class HomeFragment extends Fragment {
         return objects;
     }
 
-    public static ArrayList<sliderImageDataModel> getSliderImageData(){
-        ArrayList<sliderImageDataModel> sliderData = new ArrayList<>();
-
-        sliderData.add(new sliderImageDataModel("Aquaman","DC redeemed!", R.drawable.aquaman2,R.drawable.aquaman_poster));
-        sliderData.add(new sliderImageDataModel("Spiderman: Into the Spiderverse","Sony nailed this one!", R.drawable.spiderman,R.drawable.into_the_spiderverse_poster));
-        sliderData.add(new sliderImageDataModel("Aquaman","DC redeemed!", R.drawable.aquaman2,R.drawable.aquaman_poster));
-        return sliderData;
-    }
-
-
     ////////////////////////FIREBAAAAAAAAAAAASSSSSSSSEEEEEEEEEEE////////////////////////////
     public static void getFirebaseImageSliderData(){
         databaseReference.addValueEventListener(new ValueEventListener() {
