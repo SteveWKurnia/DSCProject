@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class commentAdapter extends RecyclerView.Adapter<commentAdapter.ViewHolder> {
 
-    static ArrayList<commentDataModel> commentDataModels = new ArrayList<>();
+    public static ArrayList<commentDataModel> commentDataModels = new ArrayList<>();
     String comment;
 
     public commentAdapter(String comment) {

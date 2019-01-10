@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.wk.com.dscmovieproject.HomeFiles.Adapter.commentAdapter;
 import android.wk.com.dscmovieproject.HomeFiles.Fragment.commentMenu;
 import android.wk.com.dscmovieproject.HomeFiles.Fragment.ratingMenu;
 import android.wk.com.dscmovieproject.R;
@@ -26,6 +27,17 @@ public class contentDetails extends AppCompatActivity {
         Log.d("AllLog","OnCreate contentDetails");
 
         getIncomingIntent();
+    }
+
+    //EraseDataFromCommentSection
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.d("AllLog","onBackPressed");
+        if (!commentAdapter.commentDataModels.isEmpty()){
+            commentAdapter.commentDataModels.clear();
+        }
+
     }
 
     private void getIncomingIntent(){
